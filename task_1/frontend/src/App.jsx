@@ -7,13 +7,21 @@ import axios from 'axios'
 function App() {
   const [file,setFile] = useState(null)
   const [figures,setfigures] = useState([])
+   const [loading,setLoading] = useState(false)
+  const [error,setError] = useState(null)
   const handleUpload=async()=>{
     const formData=new FormData();
     formData.append("file",file)
-
-    const res=await axios.post('https://image-extractor-3riv.onrender.com/api/upload_pdf',formData);
-
-    console.log(res.data);
+    try {
+      setLoading(true)
+      const res=await axios.post('https://image-extractor-3riv.onrender.com/api/upload_pdf',formData);
+      
+    } catch (error) {
+      setError(error)
+      
+    }finally{
+      setLoading(false)
+    }
     
     setfigures(res.data)
   }
@@ -27,6 +35,8 @@ function App() {
       <button onClick={handleUpload}>Upload</button>
 
       <div className="mt-4">
+        {error && <p className="text-red-500">{error.message}</p>}
+        {loading && <p>Loading...</p>}
         {figures.map((fig, idx) => (
           <div key={idx} className="flex items-center flex-col gap-2 mb-6 border p-2 rounded shadow">
             <p><strong>Page:</strong> {fig.page}</p>
