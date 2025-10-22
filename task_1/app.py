@@ -44,6 +44,7 @@ def upload_pdf():
 @app.route("/api/figures/<filename>")
 def serve_figure(filename):
     return send_from_directory(OUTPUT_FOLDER, filename)
+port=os.environ.get("PORT",5000)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0',port=port)
