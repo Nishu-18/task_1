@@ -10,7 +10,8 @@ os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 
 
 app = Flask(__name__,static_folder="frontend/dist",static_url_path="/")
-CORS(app)
+CORS(app, resources={r"/api/*": {"origins": "https://task-1-teal-nine.vercel.app"}})
+
 
 
 
