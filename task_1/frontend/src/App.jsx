@@ -30,7 +30,7 @@ function App() {
         {figures.map((fig, idx) => (
           <div key={idx} className="flex items-center flex-col gap-2 mb-6 border p-2 rounded shadow">
             <p><strong>Page:</strong> {fig.page}</p>
-            <img src={`http://127.0.0.1:5000${fig.image_url}`} alt={fig.caption} style={{ maxWidth: "400px" }} />
+            <img src={`https://image-extractor-3riv.onrender.com${fig.image_url}`} alt={fig.caption} style={{ maxWidth: "400px" }} />
             <p><strong>Caption:</strong> {fig.caption}</p>
             <p><strong>Explanation:</strong> {fig.explanations}</p>
           </div>
