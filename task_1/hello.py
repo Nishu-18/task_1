@@ -80,7 +80,7 @@ def genarete_explaination(explanations,caption):
             Avoid repeating the caption word-for-word. Write in 3-5 sentences.""",
         }
     ],
-    model="llama-3.3-70b-versatile",
+    model="openai/gpt-oss-120b",
 )
     print(chat_completion.choices[0].message.content)
     return chat_completion.choices[0].message.content
