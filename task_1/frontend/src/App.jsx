@@ -15,6 +15,7 @@ function App() {
     try {
       setLoading(true)
       const res=await axios.post('https://image-extractor-3riv.onrender.com/api/upload_pdf',formData);
+       setfigures(res.data)
       
     } catch (error) {
       setError(error)
@@ -23,7 +24,7 @@ function App() {
       setLoading(false)
     }
     
-    setfigures(res.data)
+   
   }
 
   return (
