@@ -11,7 +11,7 @@ function App() {
     const formData=new FormData();
     formData.append("file",file)
 
-    const res=await axios.post('http://127.0.0.1:5000/api/upload_pdf',formData);
+    const res=await axios.post('https://image-extractor-vert.vercel.app/api/upload_pdf',formData);
 
     console.log(res.data);
     
